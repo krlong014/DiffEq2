@@ -1,2 +1,2 @@
 # DiffEq2
-Katharine's differential equations notes
+Katharine Long's differential equations II notes
