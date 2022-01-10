@@ -9,3 +9,7 @@ These are notes for various differential equations courses I teach at Texas Tech
   - Vectors, matrices, and linear systems
     - [PDF](https://github.com/krlong014/MathematicaNotes/blob/main/LinearAlgebra/BasicLA.pdf)
     - [Notebook](https://github.com/krlong014/MathematicaNotes/blob/main/LinearAlgebra/BasicLA.nb)
+- Systems of differential equations
+- Fourier series
+- Boundary value problems
+- Fourier transforms
