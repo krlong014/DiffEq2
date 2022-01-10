@@ -1,5 +1,6 @@
-# DiffEq2
-Katharine Long's differential equations II notes
+# Katharine Long's differential equations II notes
+
+These are notes for various differential equations courses I teach at Texas Tech
 
 - Linear algebra notes
   - [Matrices, systems, and determinants](https://github.com/krlong014/LACrashCourse/blob/main/LAMatrices.pdf)
