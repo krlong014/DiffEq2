@@ -3,6 +3,7 @@
 These are notes for various differential equations courses I teach at Texas Tech
 
 - Linear algebra notes
+  - [LA core definitions](https://github.com/krlong014/DiffEq2/blob/main/Definitions.pdf)
   - [Matrices, systems, and determinants](https://github.com/krlong014/LACrashCourse/blob/main/LAMatrices.pdf)
   - [Eigenvalue problems](https://github.com/krlong014/LACrashCourse/blob/main/LAEigen.pdf)
 - Mathematica examples (see my [MathematicaNotes](https://github.com/krlong014/MathematicaNotes) repo for more)
