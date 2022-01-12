@@ -1,0 +1,1308 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+\input{klmacros}
+
+%\usetheme{Warsaw}
+\usetheme{PaloAlto}
+% or ...
+
+\usecolortheme{orchid}
+%\setbeamertemplate{footline}[text line]{} % makes the footer EMPTY
+
+\setbeamercovered{transparent}
+% or whatever (possibly just delete it)
+
+
+%\usepackage{listings}
+%\usepackage[usenames,dvipsnames]{xcolor}
+%\definecolor{lightgray}{RGB}{240,240,240}
+%\definecolor{bluegray}{RGB}{180,180,200}
+%\lstset{basicstyle={\sffamily\footnotesize},language={C++},tabsize=2,showstringspaces=false,frame=shadowbox,breaklines=true,mathescape=true,commentstyle={\itshape\textcolor{red}},lineskip=1pt,aboveskip=\bigskipamount,belowskip=\bigskipamount, rulesepcolor=\color{bluegray}}
+
+\usefonttheme[onlymath]{serif}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams
+theorems-ams-extended
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family rmdefault
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 1
+\bibtex_command default
+\index_command default
+\paperfontsize 10
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\justification true
+\use_refstyle 0
+\use_minted 0
+\branch answers
+\selected 1
+\filename_suffix 0
+\color #5555ff
+\end_branch
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 0.9in
+\topmargin 0.75in
+\rightmargin 0.9in
+\bottommargin 0.75in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip medskip
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Linear algebra: Core definitions
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Notation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\RR^{m}$
+\end_inset
+
+ and 
+\begin_inset Formula $\CC^{m}$
+\end_inset
+
+ are the 
+\begin_inset Formula $m$
+\end_inset
+
+-dimensional spaces of real and complex numbers, respectively.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The term 
+\begin_inset Quotes eld
+\end_inset
+
+scalar
+\begin_inset Quotes erd
+\end_inset
+
+ will refer to a member of 
+\begin_inset Formula $\RR$
+\end_inset
+
+ or 
+\begin_inset Formula $\CC$
+\end_inset
+
+ depending whether we're working in 
+\begin_inset Formula $\RR^{m}$
+\end_inset
+
+ or 
+\begin_inset Formula $\CC^{m}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+In what follows, 
+\emph on
+
+\begin_inset Formula $S=\left\{ \mathbf{a}_{j}\right\} _{j=1}^{n}$
+\end_inset
+
+ 
+\emph default
+is a set of vectors, with each 
+\begin_inset Formula $\mathbf{a}_{j}\in\CC^{m}$
+\end_inset
+
+ or 
+\begin_inset Formula $\RR^{m}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Definition: Linear combination and span
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Linear combination and span
+\end_layout
+
+\end_inset
+
+A 
+\series bold
+\emph on
+linear combination 
+\series default
+\emph default
+(LC) of the members of 
+\begin_inset Formula $S$
+\end_inset
+
+ is a scalar-weighted sum such as
+\begin_inset Formula 
+\[
+\mathbf{a}_{1}x_{1}+\mathbf{a}_{2}x_{2}+\cdots+\mathbf{a}_{n}x_{n},
+\]
+
+\end_inset
+
+where the 
+\begin_inset Formula $n$
+\end_inset
+
+ coefficients 
+\begin_inset Formula $\left\{ x_{j}\right\} _{j=1}^{m}$
+\end_inset
+
+ are scalars.
+ The 
+\series bold
+\emph on
+span
+\series default
+\emph default
+ of 
+\begin_inset Formula $S$
+\end_inset
+
+, denoted 
+\begin_inset Formula $\Span{S}$
+\end_inset
+
+, is the set of all linear combinations that can be formed by the members
+ of 
+\begin_inset Formula $S$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Definition: Vector space and subspace
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Vector space and subspace
+\end_layout
+
+\end_inset
+
+A set 
+\begin_inset Formula $V$
+\end_inset
+
+ of vectors is called a 
+\series bold
+\emph on
+vector space
+\series default
+\emph default
+ if it obeys the axioms listed in Appendix B of the notes.
+ We needn't go into all the axioms for this course; as long as one defines
+ addition and scalar multiplication 
+\begin_inset Quotes eld
+\end_inset
+
+reasonably,
+\begin_inset Quotes erd
+\end_inset
+
+ then it is sufficient to consider the 
+\series bold
+\emph on
+closure conditions
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\mathbf{x}+\mathbf{y}\in V$
+\end_inset
+
+ for all 
+\begin_inset Formula $\mathbf{x},\mathbf{y}\in V$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\alpha\mathbf{x}\in V$
+\end_inset
+
+ for all 
+\begin_inset Formula $\mathbf{x}\in V$
+\end_inset
+
+ and for all scalars 
+\begin_inset Formula $\alpha$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and the 
+\series bold
+\shape italic
+zero condition
+\series default
+,
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $V$
+\end_inset
+
+ contains the zero vector 
+\begin_inset Formula $\mathbf{0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+A sub
+\emph on
+set
+\emph default
+ of 
+\begin_inset Formula $V$
+\end_inset
+
+ that is itself a vector space is called a 
+\series bold
+\emph on
+subspace
+\series default
+\emph default
+.
+ 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Definition: Matrix-vector product
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Definition
+Form the matrix 
+\begin_inset Formula $A\in\CC^{m\times n}$
+\end_inset
+
+ by packing the members of 
+\begin_inset Formula $S$
+\end_inset
+
+ into the columns of 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Given a vector 
+\begin_inset Formula $\mathbf{x}\in\CC^{n}$
+\end_inset
+
+, the 
+\series bold
+\emph on
+matrix-vector product
+\series default
+\emph default
+ 
+\begin_inset Formula $A\mathbf{x}$
+\end_inset
+
+ is the linear combination of the 
+\begin_inset Formula $\mathbf{a}$
+\end_inset
+
+'s weighted by the entries in 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+A\mathbf{x}=\mathbf{a}_{1}x_{1}+\mathbf{a}_{2}x_{2}+\cdots+\mathbf{a}_{n}x_{n}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Example: Matrix-vector product
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Let 
+\begin_inset Formula $A=\left[\begin{array}{cc}
+-2 & 1\\
+3 & 5
+\end{array}\right]$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbf{x}=\left[\begin{array}{cc}
+4 & 7\end{array}\right]^{T}$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\[
+A\mathbf{x}=4\left[\begin{array}{c}
+-2\\
+3
+\end{array}\right]+7\left[\begin{array}{c}
+1\\
+5
+\end{array}\right]=\left[\begin{array}{c}
+-1\\
+47
+\end{array}\right].
+\]
+
+\end_inset
+
+Compare to the 
+\begin_inset Quotes eld
+\end_inset
+
+dot product
+\begin_inset Quotes erd
+\end_inset
+
+ approach,
+\begin_inset Formula 
+\[
+A\mathbf{x}=\left[\begin{array}{c}
+-2\cdot4+1\cdot7\\
+3\cdot4+5\cdot7
+\end{array}\right]=\left[\begin{array}{c}
+-1\\
+47
+\end{array}\right].
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Definition: Linear dependence and independence
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Definition
+The set 
+\begin_inset Formula $S$
+\end_inset
+
+ is called 
+\series bold
+\emph on
+linearly dependent
+\series default
+\emph default
+ (LD) if there is a 
+\emph on
+nonzero
+\emph default
+ vector 
+\begin_inset Formula $\mathbf{x}\in\CC^{n}$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+\mathbf{a}_{1}x_{1}+\mathbf{a}_{2}x_{2}+\cdots+\mathbf{a}_{n}x_{n}=\mathbf{0}.
+\]
+
+\end_inset
+
+If no such vector exists, then we call 
+\begin_inset Formula $S$
+\end_inset
+
+ 
+\series bold
+\emph on
+linearly independent
+\series default
+\emph default
+ (LI).
+\end_layout
+
+\begin_layout Definition
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Example: Linear dependence and independence
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Let 
+\begin_inset Formula $\mathbf{a}_{1}=\left[\begin{array}{c}
+1\\
+2
+\end{array}\right],\;\;\mathbf{a}_{2}=\left[\begin{array}{c}
+2\\
+4
+\end{array}\right]$
+\end_inset
+
+.
+ The set 
+\begin_inset Formula $\left\{ \mathbf{a}_{1},\mathbf{a}_{2}\right\} $
+\end_inset
+
+ is LD because 
+\begin_inset Formula $\mathbf{a}_{1}x_{1}+\mathbf{a}_{2}x_{2}=\mathbf{0}$
+\end_inset
+
+ for nonzero vector 
+\begin_inset Formula $\mathbf{x}=\left[\begin{array}{c}
+-2\\
+1
+\end{array}\right]s$
+\end_inset
+
+, where 
+\begin_inset Formula $s$
+\end_inset
+
+ is any constant.
+\end_layout
+
+\begin_layout Itemize
+Let 
+\begin_inset Formula $\mathbf{a}_{1}=\left[\begin{array}{c}
+1\\
+2
+\end{array}\right],\;\;\mathbf{a}_{2}=\left[\begin{array}{c}
+2\\
+2
+\end{array}\right]$
+\end_inset
+
+.
+ The set 
+\begin_inset Formula $\left\{ \mathbf{a}_{1},\mathbf{a}_{2}\right\} $
+\end_inset
+
+ is LI because the linear combination
+\begin_inset Formula 
+\[
+\mathbf{a}_{1}x_{1}+\mathbf{a}_{2}x_{2}=\left[\begin{array}{c}
+x_{1}+2x_{2}\\
+2x_{1}+2x_{2}
+\end{array}\right]
+\]
+
+\end_inset
+
+cannot be zero unless 
+\begin_inset Formula $x_{1}=x_{2}=0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Definition: Null space of a matrix
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Null space
+\end_layout
+
+\end_inset
+
+The 
+\series bold
+\emph on
+null space
+\series default
+\emph default
+ of a matrix 
+\begin_inset Formula $A\in\CC^{m\times n}$
+\end_inset
+
+, denoted 
+\begin_inset Formula $\Null\left(A\right)$
+\end_inset
+
+, is the set of vectors 
+\begin_inset Formula $\mathbf{x}\in\CC^{n}$
+\end_inset
+
+ such that 
+\begin_inset Formula $A\mathbf{x}=\mathbf{0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Notice that 
+\begin_inset Formula $\Null\left(A\right)$
+\end_inset
+
+ 
+\emph on
+always
+\emph default
+ contains the zero vector.
+ If 
+\begin_inset Formula $\Null\left(A\right)$
+\end_inset
+
+ contains 
+\emph on
+only
+\emph default
+ the zero vector, that null space is called 
+\series bold
+\emph on
+trivial
+\emph default
+;
+\series default
+ otherwise, it is called 
+\series bold
+\emph on
+nontrivial
+\series default
+\emph default
+.
+ 
+\end_layout
+
+\begin_layout Itemize
+It's not hard to show that 
+\begin_inset Formula $\Null\left(A\right)$
+\end_inset
+
+ obeys the closure conditions and is therefore a vector space.
+\end_layout
+
+\begin_layout Itemize
+Notice that 
+\begin_inset Formula $\Null\left(A\right)$
+\end_inset
+
+ is trivial iff the columns of 
+\begin_inset Formula $A$
+\end_inset
+
+ are LI.
+\end_layout
+
+\end_deeper
+\begin_layout Definition
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Example: Null spaces
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Let 
+\begin_inset Formula $A=\left[\begin{array}{cc}
+1 & 2\\
+2 & 4
+\end{array}\right]$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\Null\left(A\right)$
+\end_inset
+
+ consists of all scalar multiples of 
+\begin_inset Formula $\left[\begin{array}{c}
+-2\\
+1
+\end{array}\right]$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\Null\left(A\right)=\left\{ c\left[\begin{array}{c}
+-2\\
+1
+\end{array}\right]:c\in\RR\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Let 
+\begin_inset Formula $A=\left[\begin{array}{cc}
+1 & 2\\
+2 & 2
+\end{array}\right]$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\Null\left(A\right)$
+\end_inset
+
+ is trivial.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Definition: Range space of a matrix
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Definition
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+Range space
+\end_layout
+
+\end_inset
+
+The 
+\series bold
+\emph on
+range space
+\series default
+\emph default
+ of a matrix 
+\begin_inset Formula $A\in\CC^{m\times n}$
+\end_inset
+
+, denoted 
+\begin_inset Formula $\Range\left(A\right)$
+\end_inset
+
+, is the set of vectors 
+\begin_inset Formula $\mathbf{y}\in\CC^{m}$
+\end_inset
+
+ that can be formed by linear combination of the columns of 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ In formal notation,
+\begin_inset Formula 
+\[
+\Range\left(A\right)=\left\{ \mathbf{y}\in\CC^{m}:\exists\mathbf{x}\in\CC^{n}\;\text{for which }A\mathbf{x}=\mathbf{y}\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+It's not hard to show that 
+\begin_inset Formula $\Range\left(A\right)$
+\end_inset
+
+ obeys the closure conditions and is therefore a vector space.
+\end_layout
+
+\end_deeper
+\begin_layout Definition
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%%
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Example: Range spaces
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Let 
+\begin_inset Formula $A=\left[\begin{array}{cc}
+1 & 2\\
+2 & 4
+\end{array}\right]$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\Range\left(A\right)$
+\end_inset
+
+ consists of all scalar multiples of 
+\begin_inset Formula $\left[\begin{array}{c}
+1\\
+2
+\end{array}\right]$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\Range\left(A\right)=\left\{ c\left[\begin{array}{c}
+1\\
+2
+\end{array}\right]:c\in\RR\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Let 
+\begin_inset Formula $A=\left[\begin{array}{cc}
+1 & 2\\
+2 & 2
+\end{array}\right]$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\Range\left(A\right)$
+\end_inset
+
+ consists of all linear combinations 
+\begin_inset Formula $x_{1}\left[\begin{array}{c}
+1\\
+2
+\end{array}\right]+x_{2}\left[\begin{array}{c}
+2\\
+2
+\end{array}\right]$
+\end_inset
+
+, which is 
+\begin_inset Formula $\RR^{2}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%%
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
